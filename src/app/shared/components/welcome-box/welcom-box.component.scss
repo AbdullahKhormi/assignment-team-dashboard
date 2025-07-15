@@ -1,0 +1,38 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.welcome-box {
+  background-color: #f0f9ff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  text-align: center;
+  width: 100%;
+}
+
+.welcome-title {
+  font-size: 2rem;
+  color: #0369a1;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-text {
+  font-size: 1.1rem;
+  color: #334155;
+}
+
+@media (max-width: 768px) {
+  .welcome-box {
+    padding: 1.5rem;
+  }
+  .welcome-title {
+    font-size: 1.5rem;
+  }
+  .welcome-text {
+    font-size: 1rem;
+  }
+}
