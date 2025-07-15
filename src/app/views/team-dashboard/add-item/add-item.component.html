@@ -1,0 +1,169 @@
+<div class="container-xl">
+  <div class="row p-5">
+    <!--Title-->
+    <h1 id="title-form">Create item:-</h1>
+
+    <div class="col">
+      <div class="holder-board">
+        <div class="row">
+          <div class="col">
+            <form [formGroup]="addItemForm" (ngSubmit)="submit()" aria-label="form-title">  <!--Add ARIA attirbute , aria-lable -->
+                  <!--name input-->
+              <div class="mb-3">
+                <label for="name" class="mb-1"> Name:</label>
+                <input
+                  id="name"
+                  pInputText
+                  formControlName="name"
+                  [ngClass]="{
+                    'p-invalid':
+                      addItemForm.get('name')?.invalid &&
+                      addItemForm.get('name')?.touched
+                  }"
+                    aria-describedby="nameError"
+
+                />  <!--Add ARIA attirbute , aria-describedby -->
+                <div
+                  *ngIf="
+                    addItemForm.get('name')?.touched &&
+                    addItemForm.get('name')?.invalid
+                  "
+                  class="p-error"
+                >
+                  <small id="nameError" *ngIf="addItemForm.get('name')?.hasError('required')">
+                    name is required.</small
+                  >
+                </div>
+              </div>
+                  <!--status input-->
+
+              <div class="mb-3">
+                <label for="status" class="mb-1"> Status:</label>
+                <input
+                  id="status"
+                  pInputText
+                  formControlName="status"
+                  [ngClass]="{
+                    'p-invalid':
+                      addItemForm.get('status')?.invalid &&
+                      addItemForm.get('status')?.touched
+                  }"
+                  aria-describedby="statusError"
+                /> <!--Add ARIA attirbute , aria-describedby -->
+                <div
+                  *ngIf="
+                    addItemForm.get('status')?.touched &&
+                    addItemForm.get('status')?.invalid
+                  "
+                  class="p-error"
+                >
+                  <small
+                  id="statusError"
+
+                    *ngIf="addItemForm.get('status')?.hasError('required')"
+                  >
+                    status is required.</small
+                  >
+                </div>
+              </div>
+                  <!--role input-->
+
+              <div class="mb-3">
+                <label for="role" class="mb-1"> role:</label>
+                <input
+                  id="role"
+                  pInputText
+                  formControlName="role"
+                  [ngClass]="{
+                    'p-invalid':
+                      addItemForm.get('role')?.invalid &&
+                      addItemForm.get('role')?.touched
+                  }"
+                  aria-describedby="roleError"
+                /> <!--Add ARIA attirbute , aria-describedby -->
+                <div
+                  *ngIf="
+                    addItemForm.get('role')?.touched &&
+                    addItemForm.get('role')?.invalid
+                  "
+                  class="p-error"
+                >
+                  <small
+                  id="roleError"
+ *ngIf="addItemForm.get('role')?.hasError('required')">
+                    role is required.</small
+                  >
+                </div>
+              </div>
+                  <!--performance input-->
+
+                <div class="mb-3">
+                  <label for="performance" class="mb-1"> Performance:</label>
+                  <input
+                    id="performance"
+                    pInputText
+                    type="number"
+                    min="1" max="100"
+                    formControlName="performance"
+                    [ngClass]="{
+                      'p-invalid':
+                        addItemForm.get('performance')?.invalid &&
+                        addItemForm.get('performance')?.touched
+                    }"
+                    aria-describedby="performanceError"
+                  /> <!--Add ARIA attirbute , aria-describedby -->
+                  <div
+                    *ngIf="
+                      addItemForm.get('performance')?.touched &&
+                      addItemForm.get('performance')?.invalid
+                    "
+                    class="p-error"
+                  >
+                    <small
+                    id="performanceError"
+                      *ngIf="
+                        addItemForm.get('performance')?.hasError('required')
+                      "
+                    >
+                      performance is required.</small
+                    >
+                      <small *ngIf="addItemForm.get('performance')?.hasError('max')">
+        Maximum allowed value is 100.
+      </small>
+      <small *ngIf="addItemForm.get('performance')?.hasError('min')">
+        Minimum allowed value is 1.
+      </small>
+                  </div>
+                </div>
+                                  <!--buttons actions-->
+
+              <div class="d-flex justify-content-around">
+                <button
+                  class="btn-submit"
+                  pButton
+                  type="submit"
+                  label="Submit"
+                  [disabled]="addItemForm.invalid"
+                  aria-label="Submit the new item"
+                > <!--Add ARIA attirbute , aria-label -->
+                  send
+                </button>
+                <button
+                  class="btn-reset"
+                  pButton
+                  type="reset"
+                  label="reset"
+                  [disabled]="addItemForm.invalid"
+                    aria-label="Reset the form"
+
+                > <!--Add ARIA attirbute , aria-label -->
+                  reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

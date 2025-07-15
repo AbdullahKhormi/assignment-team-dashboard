@@ -1,0 +1,18 @@
+{
+  "teams": [
+    {
+      "name": "Abdullah",
+      "status": "available",
+      "role": "front end developer",
+      "performance": 49,
+      "id": "8ac9"
+    },
+    {
+      "id": "9f47",
+      "name": "test",
+      "status": "out of office",
+      "role": "manager",
+      "performance": 86
+    }
+  ]
+}

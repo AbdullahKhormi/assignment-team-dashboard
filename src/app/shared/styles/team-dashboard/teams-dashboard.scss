@@ -1,0 +1,60 @@
+// styale add and edit item
+.holder-board {
+    width: 100%;
+    max-width: 1600px;
+    height: auto;
+    min-height: 300px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 65px rgba(0, 0, 0, 0.2);
+    margin: 15px auto;
+    padding: 30px;
+  }
+  .p-error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  .p-invalid {
+    border: 1px solid red !important;
+  }
+  .container-xl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  input{
+    padding-left: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    border: rgba(138, 140, 141, .2509803922);
+    outline: none;
+    height: 46px;
+    background: #7e7a7a;
+  }
+  .btn-submit{
+    border-radius: 2px ;
+    padding: 7px 20px; margin-right: 8px;
+    background-color: #065d63;
+    color: white;
+    border: none;
+    &:disabled{
+        background-color: gray
+    }
+  }
+  .btn-reset{
+    border: none;
+
+    border-radius: 2px ;
+    padding: 7px 20px; margin-right: 8px;
+    background-color: #ae2525;
+    color: white;
+    &:disabled{
+        background-color: gray;
+    }
+  }
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

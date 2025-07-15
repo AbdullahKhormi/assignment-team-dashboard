@@ -1,0 +1,54 @@
+<header class="header text-white position-relative">
+  <div class="container-fluid">
+
+    <!-- Mobile Menu -->
+    <div class="row  align-items-center responsive">
+      <div class="col-6 d-flex align-items-center">
+        <a [routerLink]="'/team-dashboard'" class="d-inline-block">
+          <img src="../../../../assets/header/dashboard.svg" alt="Team Dashboard home link" class="logo-img" />  <!--Add ARIA attirbute alt image-->
+        </a>
+      </div>
+
+      <div class="col-6 d-flex justify-content-end align-items-center">
+        <button class="burger-btn" (click)="toggleMenu()" aria-label="Toggle menu"  [attr.aria-expanded]="menuOpen"> <!--Add ARIA attirbute , aria-lable and aria expended-->
+          <span *ngIf="!menuOpen" class="d-flex align-items-center">☰</span>
+          <span *ngIf="menuOpen">✕</span>
+        </button>
+      </div>
+
+      <div class="col-12" *ngIf="menuOpen">
+        <nav class="mobile-menu-overlay">
+          <ul class="nav flex-column px-3 py-2">
+            <li class="nav-item  d-flex justify-content-start align-items-center">
+              <a class="nav-link text-white d-flex align-items-center p-0 gap-1" [routerLink]="'/team-dashboard'" (click)="closeMenu()">
+              <img src="../../../../assets/header/icon-dash.svg " alt="icon link" width="24px" height="24px" >
+              <span>Info Team</span></a> <!--Add ARIA attirbute , aria current-->
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="row align-items-center desktop  justify-content-around">
+      <div class="col-4 d-flex justify-content-start align-items-center">
+        <a [routerLink]="'/team-dashboard'" class="d-inline-block">
+          <img src="../../../../assets/header/dashboard.svg" alt="Team Dashboard home link" class="logo-img" /><!--Add ARIA attirbute alt image-->
+        </a>
+      </div>
+
+      <div class="col-8 d-flex justify-content-end align-items-center">
+        <nav>
+          <ul class="nav">
+            <li class="nav-item d-flex justify-content-end align-items-center  ">
+              <a class="nav-link text-white p-0 d-flex align-items-center gap-1" [routerLink]="'/team-dashboard'" aria-current="page info team">
+              <img src="../../../../assets/header/icon-dash.svg " alt="icon link" width="24px" height="24px" >
+<span>Info Team</span>              </a> <!--Add ARIA attirbute , aria current-->
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+</header>

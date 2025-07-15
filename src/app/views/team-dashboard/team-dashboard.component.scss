@@ -1,0 +1,53 @@
+.row{
+    padding: 0;
+    margin: 0;
+}
+
+table{
+    width: 50%;
+}.triangle-green {
+   width: 0px;
+   height: 0px;
+   border-style: solid;
+   border-width: 0 20px 25px 20px;
+   border-color: transparent transparent #119D00 transparent;
+   transform: rotate(0deg);
+}
+.triangle-red {
+   width: 0px;
+   height: 0px;
+   border-style: solid;
+   border-width: 0 20px 25px 20px;
+   border-color: transparent transparent #ff0000 transparent;
+   transform: rotate(180deg);
+}
+th.mat-header-cell {
+  text-align: center !important;
+}
+mat-header-cell, mat-cell {
+  justify-content: center;
+}
+ .responsive{
+    flex-direction: column;
+}
+.holder-button{
+    justify-content: end;
+}
+.table-customize{
+    overflow: auto;
+}
+@media (min-width: 768px) {
+  .responsive{
+    flex-direction: row;
+}
+.holder-button{
+    justify-content: end;
+}
+
+}
+@media (min-width: 580px) {
+  .table-customize{
+    overflow: hidden;
+}
+
+}

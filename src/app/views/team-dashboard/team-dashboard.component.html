@@ -1,0 +1,129 @@
+<div class="holder-table" role="region" aria-labelledby="team-dashboard-title"> <!--Add ARIA attirbute , aria-labelledby -->
+  <div class="row">
+    <!-- ID added to heading to associate with aria-labelledby -->
+    <h1 id="team-dashboard-title" class="mt-2">Team dashboard details:-</h1>
+
+    <div class="d-flex justify-content-between col-12 responsive">
+      <!-- Filter input -->
+      <div class="mt-4 col-12 col-sm-12 col-md-6 col-lg-6">
+        <mat-form-field style="width: 100%">
+          <mat-label>Filter</mat-label>
+        <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Filter by status or role"
+            aria-label="Filter team table by status or role"
+          />
+          <!--Add ARIA attirbute , aria-label -->
+        </mat-form-field>
+      </div>
+
+      <!-- Add button -->
+      <div class="col-12 col-sm-12 col-lg-6 col-md-6 holder-button d-flex mt-4 justify-content-end">
+        <button
+          class="btn btn-success"
+          (click)="navigate()"
+          aria-label="Add new item to the team dashboard"
+
+        >
+        <!--Add ARIA attirbute , aria-label -->
+          Add new item
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table wrapper -->
+
+  <div class="p-3 table-customize">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="mat-elevation-z8 mt-4"
+      role="table"
+      aria-label="Team members data table"
+    >
+    <!--Add ARIA attirbute , aria-label -->
+      <!-- Table columns -->
+
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef role="columnheader">No.</th>
+        <td mat-cell *matCellDef="let element; let i = index" role="cell">{{ i }}</td><!--Add ARIA attirbute , role -->
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef role="columnheader">Name</th>
+        <td mat-cell *matCellDef="let element" role="cell">{{ element.name }}</td>
+        <!--Add ARIA attirbute , role -->
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef role="columnheader">Status</th>
+        <td mat-cell *matCellDef="let element" role="cell">{{ element.status }}</td>
+        <!--Add ARIA attirbute , role -->
+      </ng-container>
+
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef role="columnheader">Role</th>
+        <td mat-cell *matCellDef="let element" role="cell">{{ element.role }}</td>
+        <!--Add ARIA attirbute , role -->
+      </ng-container>
+
+      <ng-container matColumnDef="performance">
+        <th mat-header-cell *matHeaderCellDef role="columnheader">Performance</th>
+        <td mat-cell *matCellDef="let element" role="cell">
+          <!--Add ARIA attirbute , role -->
+
+          <div class="d-flex justify-content-around" aria-label="Performance in percentage">
+            <span class="mx-1">{{ element.performance }}%</span>
+            <!--Add ARIA attirbute , aria-label -->
+            <span
+              [ngClass]="
+                element.performance >= 50 ? 'triangle-green' : 'triangle-red'
+              "
+              role="presentation"
+            ></span>
+                        <!--Add ARIA attirbute , role -->
+
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef role="columnheader">Actions</th>
+                                <!--Add ARIA attirbute , role -->
+
+        <td mat-cell *matCellDef="let element" role="cell">
+                                  <!--Add ARIA attirbute , role -->
+
+          <div class="d-flex gap-4">
+            <!-- aria-label describes the purpose of the button for screen readers -->
+            <button
+              class="btn btn-primary"
+              [routerLink]="'/edit-item/' + element?.id"
+              aria-label="Edit item "
+
+            >
+                                    <!--Add ARIA attirbute , aria-label -->
+
+              Edit
+            </button>
+            <button
+              class="btn btn-danger"
+              (click)="delete(element.id)"
+              aria-label="Delete item "
+            >
+              <!--Add ARIA attirbute , aria-label -->
+              Delete
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Table rows definition -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" role="row"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" role="row"></tr>
+    </table>
+  </div>
+</div>

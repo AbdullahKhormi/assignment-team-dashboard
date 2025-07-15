@@ -30,7 +30,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -95,6 +98,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -102,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9786007d-53d0-4290-a71b-0dba0e53de76"
   }
 }

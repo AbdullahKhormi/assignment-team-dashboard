@@ -1,0 +1,80 @@
+<!-- Delete Dialog -->
+<div *ngIf="view === 'delete'" style="width: 480px" role="dialog" aria-labelledby="delete-title" aria-describedby="delete-message">
+  <div class="confirm-container">
+
+    <!-- Dialog title with ID -->
+    <h1 id="delete-title" mat-dialog-title class="text-center title">
+      {{ text }}
+    </h1>
+
+    <!-- Dialog description -->
+    <div id="delete-message" mat-dialog-content class="text-center message-error">
+      {{ message }}
+    </div>
+
+    <!-- Optional note -->
+    <div class="text-center note-error" style="margin-bottom: 20px" *ngIf="note != ''">
+      {{ note }}
+    </div>
+
+    <!-- Action buttons -->
+    <div mat-dialog-actions [align]="'end'" class="d-flex gap-4">
+      <button
+        mat-raised-button
+        [mat-dialog-close]="true"
+        class="btn btn-success"
+        aria-label="Confirm delete"
+      >
+        {{ confirmButtonText }}
+      </button>
+
+      <button
+        mat-raised-button
+        [mat-dialog-close]="false"
+        class="btn btn-danger"
+        aria-label="Cancel delete"
+      >
+        {{ cancelButtonText }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Error Dialog -->
+<div *ngIf="view === 'error'" style="width: 480px" role="alertdialog" aria-labelledby="error-title" aria-describedby="error-message">
+  <div class="confirm-container" style="margin-top: 16px">
+
+    <!-- Error title -->
+    <h1 id="error-title" mat-dialog-title class="text-center">
+      {{ text }}
+    </h1>
+
+    <!-- Error message and note -->
+    <div id="error-message" mat-dialog-content class="text-center message-error">
+      {{ message }} <br />
+      {{ note }}
+    </div>
+
+    <!-- Try again button -->
+    <div mat-dialog-actions [align]="'center'" style="margin-bottom: 24px">
+      <button
+        style="outline: none; background-color: transparent; border: none"
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="false"
+        aria-label="Try the action again"
+      >
+        <div class="d-flex justify-content-center align-items-center">
+          <span style="margin-right: 6px; margin-top: 4px">
+            <i class="pi pi-refresh" style="color: #5c964d; font-size: 22px" aria-hidden="true"></i>
+          </span>
+          <span
+            style="font-family: Inter; font-size: 16px; font-weight: 700; line-height: 24px; text-align: center; color: #ff0000;"
+          >
+            Try Again
+          </span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>

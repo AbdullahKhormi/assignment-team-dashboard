@@ -1,0 +1,158 @@
+<div class="container-xl">
+  <div class="row p-5">
+    <!-- Title -->
+    <h1 id="edit-form-title">Edit item:-</h1>
+
+    <div class="col">
+      <div class="holder-board">
+        <div class="row">
+          <div class="col">
+            <form [formGroup]="editItemForm"
+                  (ngSubmit)="submit()"
+                  aria-labelledby="edit-form-title">
+              <!-- Add ARIA attribute: aria-labelledby -->
+
+              <!-- Name input -->
+              <div class="mb-3">
+                <label for="name" class="mb-1"> Name:</label>
+                <input
+                  id="name"
+                  pInputText
+                  formControlName="name"
+                  aria-describedby="nameError"
+                  [ngClass]="{
+                    'p-invalid':
+                      editItemForm.get('name')?.invalid &&
+                      editItemForm.get('name')?.touched
+                  }"
+                />
+                <!-- Add ARIA attribute: aria-describedby -->
+
+                <div
+                  *ngIf="editItemForm.get('name')?.touched && editItemForm.get('name')?.invalid"
+                  class="p-error">
+                  <small id="nameError" *ngIf="editItemForm.get('name')?.hasError('required')">
+                    Name is required.
+                  </small>
+                </div>
+              </div>
+
+              <!-- Status input -->
+              <div class="mb-3">
+                <label for="status" class="mb-1"> Status:</label>
+                <input
+                  id="status"
+                  pInputText
+                  formControlName="status"
+                  aria-describedby="statusError"
+                  [ngClass]="{
+                    'p-invalid':
+                      editItemForm.get('status')?.invalid &&
+                      editItemForm.get('status')?.touched
+                  }"
+                />
+                <!-- Add ARIA attribute: aria-describedby -->
+
+                <div
+                  *ngIf="editItemForm.get('status')?.touched && editItemForm.get('status')?.invalid"
+                  class="p-error">
+                  <small id="statusError" *ngIf="editItemForm.get('status')?.hasError('required')">
+                    Status is required.
+                  </small>
+                </div>
+              </div>
+
+              <!-- Role input -->
+              <div class="mb-3">
+                <label for="role" class="mb-1"> Role:</label>
+                <input
+                  id="role"
+                  pInputText
+                  formControlName="role"
+                  aria-describedby="roleError"
+                  [ngClass]="{
+                    'p-invalid':
+                      editItemForm.get('role')?.invalid &&
+                      editItemForm.get('role')?.touched
+                  }"
+                />
+                <!-- Add ARIA attribute: aria-describedby -->
+
+                <div
+                  *ngIf="editItemForm.get('role')?.touched && editItemForm.get('role')?.invalid"
+                  class="p-error">
+                  <small id="roleError" *ngIf="editItemForm.get('role')?.hasError('required')">
+                    Role is required.
+                  </small>
+                </div>
+              </div>
+
+              <!-- Performance input -->
+              <div class="mb-3">
+                <label for="performance" class="mb-1"> Performance:</label>
+                <input
+                  id="performance"
+                  pInputText
+                  type="number"
+                  min="1"
+                  max="100"
+                  formControlName="performance"
+                  aria-describedby="performanceError"
+                  [ngClass]="{
+                    'p-invalid':
+                      editItemForm.get('performance')?.invalid &&
+                      editItemForm.get('performance')?.touched
+                  }"
+                />
+                <!-- Add ARIA attribute: aria-describedby -->
+
+                <div
+                  *ngIf="editItemForm.get('performance')?.touched &&
+                         editItemForm.get('performance')?.invalid"
+                  class="p-error">
+                  <small id="performanceError" *ngIf="editItemForm.get('performance')?.hasError('required')">
+                    Performance is required.
+                  </small>
+                  <small *ngIf="editItemForm.get('performance')?.hasError('max')">
+                    Maximum allowed value is 100.
+                  </small>
+                  <small *ngIf="editItemForm.get('performance')?.hasError('min')">
+                    Minimum allowed value is 1.
+                  </small>
+                </div>
+              </div>
+
+              <!-- Buttons -->
+              <div class="d-flex justify-content-around">
+                <button
+                  class="btn-submit"
+                  pButton
+                  type="submit"
+                  label="Submit"
+                  [disabled]="editItemForm.invalid"
+                  aria-label="Submit the updated item">
+                  <!-- Add ARIA attribute: aria-label -->
+                  send
+                </button>
+
+                <button
+                  class="btn-reset"
+                  pButton
+                  type="reset"
+                  label="Reset"
+                  [disabled]="editItemForm.invalid"
+                  aria-label="Reset the form">
+                  <!-- Add ARIA attribute: aria-label -->
+                  reset
+                </button>
+              </div>
+              <!-- End Buttons -->
+
+            </form>
+            <!-- End Form -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
